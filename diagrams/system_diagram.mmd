@@ -1,0 +1,38 @@
+flowchart TD
+    User(["Human user: plain-English request"]) --> Guard
+
+    subgraph APP["src/assistant.py - RAG pipeline"]
+        Guard{"1. Guardrails: validate_query<br/>non-empty text, max 300 chars"}
+        Retriever["2. Retriever: keyword match<br/>whole words and phrases, top 3 docs"]
+        Builder["3. Profile builder<br/>retrieved hints become genre, mood,<br/>energy, valence, acoustic targets"]
+        Scorer["4. Recommender: src/recommender.py<br/>score all songs, rank top k"]
+        Check{"5. Self-check<br/>no docs matched? top score under 60%?"}
+        Guard -- valid --> Retriever
+        Retriever --> Builder
+        Builder --> Scorer
+        Scorer --> Check
+    end
+
+    KB[("data/knowledge_base.json<br/>25 genre, mood, activity docs")] --> Retriever
+    Songs[("data/songs.csv<br/>18-song catalog")] --> Scorer
+
+    Guard -- rejected --> Reject["Input rejected message"]
+    Check -- "weak or unmatched" --> Warn["Warning and lowered confidence<br/>neutral profile fallback"]
+    Check -- ok --> Output
+    Warn --> Output["Output: ranked songs, retrieved context,<br/>built profile, per-song reasons, confidence"]
+    Reject --> User
+    Output --> Review(["Human review:<br/>reads cited docs and reasons,<br/>judges whether the picks fit"])
+
+    APP -. "every step" .-> Log[("logs/assistant.log")]
+    Log -. "audit trail" .-> Review
+
+    subgraph TEST["Testing and evaluation"]
+        Eval["src/evaluate.py reliability harness<br/>7 labelled requests, determinism,<br/>5 guardrail rejections"]
+        Unit["pytest: tests/test_assistant.py<br/>tests/test_recommender.py"]
+    end
+
+    Eval -- "runs full pipeline" --> Guard
+    Unit -- "tests components" --> APP
+    Eval --> Report["Pass rate, mean confidence,<br/>non-zero exit on failure"]
+    Report --> Dev(["Human developer: fixes KB<br/>keywords or scoring when a check fails"])
+    Dev -. "edits" .-> KB
