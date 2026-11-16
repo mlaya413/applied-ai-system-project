@@ -1,0 +1,453 @@
+[
+ {
+  "id": "genre-pop",
+  "kind": "genre",
+  "keywords": [
+   "pop",
+   "radio",
+   "catchy",
+   "upbeat",
+   "sing along"
+  ],
+  "text": "Pop is bright, catchy and polished, with high energy and positive mood.",
+  "hints": {
+   "genre": "pop",
+   "energy": 0.8,
+   "valence": 0.8,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "genre-lofi",
+  "kind": "genre",
+  "keywords": [
+   "lofi",
+   "lo-fi",
+   "beats",
+   "mellow beats"
+  ],
+  "text": "Lofi is soft, low-energy and warm, often acoustic-leaning; great for background listening.",
+  "hints": {
+   "genre": "lofi",
+   "energy": 0.4,
+   "valence": 0.6,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "genre-rock",
+  "kind": "genre",
+  "keywords": [
+   "rock",
+   "guitar",
+   "guitars",
+   "riffs",
+   "band"
+  ],
+  "text": "Rock is guitar-driven with high energy and a driving, sometimes dark feel.",
+  "hints": {
+   "genre": "rock",
+   "energy": 0.9,
+   "valence": 0.5,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "genre-metal",
+  "kind": "genre",
+  "keywords": [
+   "metal",
+   "heavy",
+   "screaming",
+   "brutal"
+  ],
+  "text": "Metal is extremely high energy, aggressive and dark, never acoustic.",
+  "hints": {
+   "genre": "metal",
+   "mood": "aggressive",
+   "energy": 0.97,
+   "valence": 0.2,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "genre-jazz",
+  "kind": "genre",
+  "keywords": [
+   "jazz",
+   "saxophone",
+   "smooth"
+  ],
+  "text": "Jazz is smooth and relaxed with moderate energy and acoustic instruments.",
+  "hints": {
+   "genre": "jazz",
+   "mood": "relaxed",
+   "energy": 0.4,
+   "valence": 0.65,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "genre-classical",
+  "kind": "genre",
+  "keywords": [
+   "classical",
+   "orchestra",
+   "piano",
+   "symphony"
+  ],
+  "text": "Classical is calm and acoustic with very low energy.",
+  "hints": {
+   "genre": "classical",
+   "mood": "peaceful",
+   "energy": 0.2,
+   "valence": 0.5,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "genre-folk",
+  "kind": "genre",
+  "keywords": [
+   "folk",
+   "storytelling",
+   "acoustic guitar"
+  ],
+  "text": "Folk is acoustic, gentle and often wistful or melancholic.",
+  "hints": {
+   "genre": "folk",
+   "mood": "melancholic",
+   "energy": 0.3,
+   "valence": 0.35,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "genre-edm",
+  "kind": "genre",
+  "keywords": [
+   "edm",
+   "electronic",
+   "dance",
+   "club",
+   "rave"
+  ],
+  "text": "EDM is very high energy, euphoric and fully synthetic.",
+  "hints": {
+   "genre": "edm",
+   "mood": "euphoric",
+   "energy": 0.95,
+   "valence": 0.8,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "genre-hiphop",
+  "kind": "genre",
+  "keywords": [
+   "hip hop",
+   "hip-hop",
+   "rap"
+  ],
+  "text": "Hip hop is rhythmic and confident with medium-high energy.",
+  "hints": {
+   "genre": "hip hop",
+   "mood": "confident",
+   "energy": 0.75,
+   "valence": 0.65,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "genre-rnb",
+  "kind": "genre",
+  "keywords": [
+   "r&b",
+   "rnb",
+   "soul",
+   "slow jam"
+  ],
+  "text": "R&B is smooth and romantic with medium energy.",
+  "hints": {
+   "genre": "r&b",
+   "mood": "romantic",
+   "energy": 0.55,
+   "valence": 0.6,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "genre-reggae",
+  "kind": "genre",
+  "keywords": [
+   "reggae",
+   "island",
+   "beach"
+  ],
+  "text": "Reggae is laid-back, warm and positive.",
+  "hints": {
+   "genre": "reggae",
+   "mood": "laid-back",
+   "energy": 0.45,
+   "valence": 0.75,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "genre-country",
+  "kind": "genre",
+  "keywords": [
+   "country",
+   "road trip",
+   "truck"
+  ],
+  "text": "Country is nostalgic, story-driven and semi-acoustic.",
+  "hints": {
+   "genre": "country",
+   "mood": "nostalgic",
+   "energy": 0.5,
+   "valence": 0.6,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "genre-synthwave",
+  "kind": "genre",
+  "keywords": [
+   "synthwave",
+   "retro",
+   "80s",
+   "neon",
+   "night drive"
+  ],
+  "text": "Synthwave is moody, retro and synth-heavy with medium-high energy.",
+  "hints": {
+   "genre": "synthwave",
+   "mood": "moody",
+   "energy": 0.7,
+   "valence": 0.45,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "genre-ambient",
+  "kind": "genre",
+  "keywords": [
+   "ambient",
+   "atmospheric",
+   "drone"
+  ],
+  "text": "Ambient is spacious, calm and very low energy.",
+  "hints": {
+   "genre": "ambient",
+   "mood": "chill",
+   "energy": 0.25,
+   "valence": 0.5,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "genre-indiepop",
+  "kind": "genre",
+  "keywords": [
+   "indie",
+   "indie pop"
+  ],
+  "text": "Indie pop is light, cheerful and slightly acoustic.",
+  "hints": {
+   "genre": "indie pop",
+   "mood": "happy",
+   "energy": 0.65,
+   "valence": 0.75,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "mood-chill",
+  "kind": "mood",
+  "keywords": [
+   "chill",
+   "relax",
+   "relaxing",
+   "calm",
+   "unwind",
+   "laid back"
+  ],
+  "text": "Chill listening wants low energy and a soft, acoustic-leaning sound.",
+  "hints": {
+   "mood": "chill",
+   "energy": 0.35,
+   "valence": 0.6,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "mood-happy",
+  "kind": "mood",
+  "keywords": [
+   "happy",
+   "cheerful",
+   "joyful",
+   "fun",
+   "good mood",
+   "sunny"
+  ],
+  "text": "Happy listening wants high valence and upbeat energy.",
+  "hints": {
+   "mood": "happy",
+   "energy": 0.78,
+   "valence": 0.85
+  }
+ },
+ {
+  "id": "mood-sad",
+  "kind": "mood",
+  "keywords": [
+   "sad",
+   "melancholy",
+   "melancholic",
+   "heartbreak",
+   "cry",
+   "lonely",
+   "rainy"
+  ],
+  "text": "Sad listening wants low valence and usually lower energy.",
+  "hints": {
+   "mood": "melancholic",
+   "energy": 0.3,
+   "valence": 0.25,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "mood-intense",
+  "kind": "mood",
+  "keywords": [
+   "intense",
+   "powerful",
+   "hype",
+   "angry",
+   "aggressive",
+   "adrenaline"
+  ],
+  "text": "Intense listening wants very high energy and low-to-medium valence.",
+  "hints": {
+   "mood": "intense",
+   "energy": 0.92,
+   "valence": 0.4,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "mood-focused",
+  "kind": "mood",
+  "keywords": [
+   "focus",
+   "focused",
+   "study",
+   "studying",
+   "homework",
+   "concentrate",
+   "coding",
+   "work"
+  ],
+  "text": "Focus music is steady, low-to-medium energy and not distracting.",
+  "hints": {
+   "mood": "focused",
+   "energy": 0.4,
+   "valence": 0.55,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "mood-romantic",
+  "kind": "mood",
+  "keywords": [
+   "romantic",
+   "love",
+   "date",
+   "date night"
+  ],
+  "text": "Romantic listening is warm, smooth and medium energy.",
+  "hints": {
+   "mood": "romantic",
+   "energy": 0.5,
+   "valence": 0.6
+  }
+ },
+ {
+  "id": "activity-workout",
+  "kind": "activity",
+  "keywords": [
+   "workout",
+   "gym",
+   "running",
+   "run",
+   "exercise",
+   "lifting",
+   "cardio"
+  ],
+  "text": "Workouts need high energy and a driving beat; acoustic sounds feel too soft.",
+  "hints": {
+   "mood": "intense",
+   "energy": 0.9,
+   "valence": 0.65,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "activity-sleep",
+  "kind": "activity",
+  "keywords": [
+   "sleep",
+   "bedtime",
+   "sleepy",
+   "nap",
+   "meditate",
+   "meditation",
+   "asleep",
+   "fall asleep",
+   "insomnia"
+  ],
+  "text": "Sleep music is extremely low energy, calm and acoustic.",
+  "hints": {
+   "mood": "peaceful",
+   "energy": 0.15,
+   "valence": 0.5,
+   "likes_acoustic": true
+  }
+ },
+ {
+  "id": "activity-party",
+  "kind": "activity",
+  "keywords": [
+   "party",
+   "dancing",
+   "celebrate",
+   "celebration"
+  ],
+  "text": "Party music is high energy, positive and danceable.",
+  "hints": {
+   "mood": "euphoric",
+   "energy": 0.9,
+   "valence": 0.85,
+   "likes_acoustic": false
+  }
+ },
+ {
+  "id": "activity-drive",
+  "kind": "activity",
+  "keywords": [
+   "drive",
+   "driving",
+   "commute",
+   "road"
+  ],
+  "text": "Driving music is medium-high energy and engaging.",
+  "hints": {
+   "energy": 0.7,
+   "valence": 0.6,
+   "likes_acoustic": false
+  }
+ }
+]
