@@ -1,12 +1,25 @@
-platform win32 -- Python 3.12.10, pytest-9.2.0
-collecting ... collected 7 items
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\hi\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+rootdir: c:\Users\hi\ai110-module3show-musicrecommendersimulation-starter
+plugins: anyio-4.16.0
+collecting ... collected 16 items
 
-tests/test_assistant.py::test_rejects_bad_input PASSED                   [ 14%]
-tests/test_assistant.py::test_retrieval_whole_word_only PASSED           [ 28%]
-tests/test_assistant.py::test_retrieved_docs_change_profile PASSED       [ 42%]
-tests/test_assistant.py::test_retrieval_changes_recommendations PASSED   [ 57%]
-tests/test_assistant.py::test_no_match_falls_back_safely PASSED          [ 71%]
-tests/test_recommender.py::test_recommend_returns_songs_sorted_by_score PASSED [ 85%]
-tests/test_recommender.py::test_explain_recommendation_returns_non_empty_string PASSED [100%]
+tests/test_assistant.py::test_rejects_bad_input PASSED                   [  6%]
+tests/test_assistant.py::test_retrieval_whole_word_only PASSED           [ 12%]
+tests/test_assistant.py::test_retrieved_docs_change_profile PASSED       [ 18%]
+tests/test_assistant.py::test_retrieval_changes_recommendations PASSED   [ 25%]
+tests/test_assistant.py::test_no_match_falls_back_safely PASSED          [ 31%]
+tests/test_recommender.py::test_recommend_returns_songs_sorted_by_score PASSED [ 37%]
+tests/test_recommender.py::test_explain_recommendation_returns_non_empty_string PASSED [ 43%]
+tests/test_recommender.py::test_max_score_is_sum_of_weights_and_never_exceeded PASSED [ 50%]
+tests/test_recommender.py::test_label_bonuses_can_outweigh_energy_fit PASSED [ 56%]
+tests/test_recommender.py::test_unknown_genre_falls_back_to_other_features PASSED [ 62%]
+tests/test_recommender.py::test_ties_break_alphabetically_by_title PASSED [ 68%]
+tests/test_recommender.py::test_explanation_uses_max_score_not_hardcoded_ten PASSED [ 75%]
+tests/test_recommender.py::test_missing_pref_is_reported_not_silently_skipped PASSED [ 81%]
+tests/test_recommender.py::test_empty_or_out_of_range_prefs_raise PASSED [ 87%]
+tests/test_recommender.py::test_default_valence_is_flagged_in_explanation PASSED [ 93%]
+tests/test_recommender.py::test_load_songs_fails_loudly PASSED           [100%]
 
-============================== 7 passed in 0.05s ==============================
+============================= 16 passed in 0.07s ==============================
