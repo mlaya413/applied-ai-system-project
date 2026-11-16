@@ -1,0 +1,54 @@
+$ python -m src.assistant "something to study to on a rainy day"
+
+Request: "something to study to on a rainy day"
+Retrieved context:
+  - [mood-focused] Focus music is steady, low-to-medium energy and not distracting.
+  - [mood-sad] Sad listening wants low valence and usually lower energy.
+Profile built from context: genre=None, mood=focused, energy=0.35, valence=0.40, acoustic=True
+Confidence: 53%
+#1 Focus Flow - LoRoom [lofi/focused] 8.02/10
+     mood match: focused (+2.5); energy 0.40 vs target 0.35 (+3.32); valence 0.59 vs target 0.40 (+1.22); acousticness 0.78 vs target 0.80 (+0.98)
+#2 Library Rain - Paper Lanterns [lofi/chill] 5.64/10
+     energy 0.35 vs target 0.35 (+3.50); valence 0.60 vs target 0.40 (+1.20); acousticness 0.86 vs target 0.80 (+0.94)
+#3 Autumn Letters - Fern & Ash [folk/melancholic] 5.49/10
+     energy 0.30 vs target 0.35 (+3.32); valence 0.25 vs target 0.40 (+1.27); acousticness 0.91 vs target 0.80 (+0.89)
+#4 Midnight Coding - LoRoom [lofi/chill] 5.42/10
+
+$ python -m src.assistant "gym workout"
+
+Request: "gym workout"
+Retrieved context:
+  - [activity-workout] Workouts need high energy and a driving beat; acoustic sounds feel too soft.
+Profile built from context: genre=None, mood=intense, energy=0.90, valence=0.65, acoustic=False
+Confidence: 54%
+#1 Storm Runner - Voltline [rock/intense] 8.11/10
+     mood match: intense (+2.5); energy 0.91 vs target 0.90 (+3.46); valence 0.48 vs target 0.65 (+1.24); acousticness 0.10 vs target 0.20 (+0.90)
+#2 Gym Hero - Max Pulse [pop/intense] 8.06/10
+     mood match: intense (+2.5); energy 0.93 vs target 0.90 (+3.40); valence 0.77 vs target 0.65 (+1.32); acousticness 0.05 vs target 0.20 (+0.85)
+#3 Concrete Crown - Kid Meridian [hip hop/confident] 5.42/10
+     energy 0.78 vs target 0.90 (+3.08); valence 0.62 vs target 0.65 (+1.46); acousticness 0.08 vs target 0.20 (+0.88)
+#4 Sunrise City - Neon Echo [pop/happy] 5.41/10
+     energy 0.82 vs target 0.90 (+3.22); valence 0.84 vs target 0.65 (+1.22); acousticness 0.18 vs target 0.20 (+0.98)
+
+$ python -m src.assistant "qwerty zzz"
+
+Request: "qwerty zzz"
+Retrieved context:
+  (none)
+Profile built from context: genre=None, mood=None, energy=0.50, valence=0.50, acoustic=False
+Confidence: 0%
+WARNING: No knowledge-base match; using a neutral profile. Try naming a genre, mood or activity.
+WARNING: Best match scored only 5.4/10; the catalog may not fit this request.
+#1 Velvet Hours - Satin Avenue [r&b/romantic] 5.35/10
+     energy 0.55 vs target 0.50 (+3.32); valence 0.72 vs target 0.50 (+1.17); acousticness 0.34 vs target 0.20 (+0.86)
+#2 Dusty Porchlight - Wren Hollow [country/nostalgic] 5.12/10
+     energy 0.52 vs target 0.50 (+3.43); valence 0.68 vs target 0.50 (+1.23); acousticness 0.74 vs target 0.20 (+0.46)
+#3 Midnight Coding - LoRoom [lofi/chill] 5.12/10
+     energy 0.42 vs target 0.50 (+3.22); valence 0.56 vs target 0.50 (+1.41); acousticness 0.71 vs target 0.20 (+0.49)
+
+$ python -m src.assistant ""
+Input rejected: Please describe what you want to listen to.
+(exit code 1)
+
+$ python -m src.assistant "<400 x characters>"
+Input rejected: Request too long (400 chars; max 300).

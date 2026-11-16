@@ -1,0 +1,48 @@
+2026-11-16 00:33:19,198 INFO query='something to study to on a rainy day' retrieved=['mood-focused', 'mood-sad'] profile={'favorite_genre': None, 'favorite_mood': 'focused', 'target_energy': 0.35, 'target_valence': 0.4, 'likes_acoustic': True}
+2026-11-16 00:33:19,199 INFO top=['Focus Flow', 'Library Rain', 'Autumn Letters', 'Midnight Coding', 'Coffee Shop Stories'] confidence=0.53
+2026-11-16 00:33:19,388 INFO query='gym workout' retrieved=['activity-workout'] profile={'favorite_genre': None, 'favorite_mood': 'intense', 'target_energy': 0.9, 'target_valence': 0.65, 'likes_acoustic': False}
+2026-11-16 00:33:19,388 INFO top=['Storm Runner', 'Gym Hero', 'Concrete Crown', 'Sunrise City', 'Pulse Horizon'] confidence=0.54
+2026-11-16 00:33:19,574 INFO query='qwerty zzz' retrieved=[] profile={'favorite_genre': None, 'favorite_mood': None, 'target_energy': 0.5, 'target_valence': 0.5, 'likes_acoustic': False}
+2026-11-16 00:33:19,576 WARNING query='qwerty zzz' No knowledge-base match; using a neutral profile. Try naming a genre, mood or activity.
+2026-11-16 00:33:19,576 WARNING query='qwerty zzz' Best match scored only 5.4/10; the catalog may not fit this request.
+2026-11-16 00:33:19,576 INFO top=['Velvet Hours', 'Dusty Porchlight', 'Midnight Coding', 'Night Drive Loop', 'Island Drift'] confidence=0.00
+2026-11-16 00:33:20,302 INFO query='I need something to study to' retrieved=['mood-focused'] profile={'favorite_genre': None, 'favorite_mood': 'focused', 'target_energy': 0.4, 'target_valence': 0.55, 'likes_acoustic': True}
+2026-11-16 00:33:20,302 INFO top=['Focus Flow', 'Midnight Coding', 'Library Rain', 'Coffee Shop Stories', 'Dusty Porchlight'] confidence=0.28
+2026-11-16 00:33:20,302 INFO query='I need something to study to' retrieved=['mood-focused'] profile={'favorite_genre': None, 'favorite_mood': 'focused', 'target_energy': 0.4, 'target_valence': 0.55, 'likes_acoustic': True}
+2026-11-16 00:33:20,302 INFO top=['Focus Flow', 'Midnight Coding', 'Library Rain', 'Coffee Shop Stories', 'Dusty Porchlight'] confidence=0.28
+2026-11-16 00:33:20,302 INFO query='pump me up for the gym' retrieved=['activity-workout'] profile={'favorite_genre': None, 'favorite_mood': 'intense', 'target_energy': 0.9, 'target_valence': 0.65, 'likes_acoustic': False}
+2026-11-16 00:33:20,302 INFO top=['Storm Runner', 'Gym Hero', 'Concrete Crown', 'Sunrise City', 'Pulse Horizon'] confidence=0.27
+2026-11-16 00:33:20,304 INFO query='pump me up for the gym' retrieved=['activity-workout'] profile={'favorite_genre': None, 'favorite_mood': 'intense', 'target_energy': 0.9, 'target_valence': 0.65, 'likes_acoustic': False}
+2026-11-16 00:33:20,304 INFO top=['Storm Runner', 'Gym Hero', 'Concrete Crown', 'Sunrise City', 'Pulse Horizon'] confidence=0.27
+2026-11-16 00:33:20,304 INFO query='sad rainy day music' retrieved=['mood-sad'] profile={'favorite_genre': None, 'favorite_mood': 'melancholic', 'target_energy': 0.3, 'target_valence': 0.25, 'likes_acoustic': True}
+2026-11-16 00:33:20,304 INFO top=['Autumn Letters', 'Library Rain', 'Spacewalk Thoughts', 'Focus Flow', 'Midnight Coding'] confidence=0.56
+2026-11-16 00:33:20,304 INFO query='sad rainy day music' retrieved=['mood-sad'] profile={'favorite_genre': None, 'favorite_mood': 'melancholic', 'target_energy': 0.3, 'target_valence': 0.25, 'likes_acoustic': True}
+2026-11-16 00:33:20,304 INFO top=['Autumn Letters', 'Library Rain', 'Spacewalk Thoughts', 'Focus Flow', 'Midnight Coding'] confidence=0.56
+2026-11-16 00:33:20,306 INFO query='late night drive with neon synthwave' retrieved=['genre-synthwave', 'activity-drive'] profile={'favorite_genre': 'synthwave', 'favorite_mood': 'moody', 'target_energy': 0.7, 'target_valence': 0.48, 'likes_acoustic': False}
+2026-11-16 00:33:20,306 INFO top=['Night Drive Loop', 'Concrete Crown', 'Storm Runner', 'Rooftop Lights', 'Sunrise City'] confidence=0.98
+2026-11-16 00:33:20,306 INFO query='late night drive with neon synthwave' retrieved=['genre-synthwave', 'activity-drive'] profile={'favorite_genre': 'synthwave', 'favorite_mood': 'moody', 'target_energy': 0.7, 'target_valence': 0.48, 'likes_acoustic': False}
+2026-11-16 00:33:20,306 INFO top=['Night Drive Loop', 'Concrete Crown', 'Storm Runner', 'Rooftop Lights', 'Sunrise City'] confidence=0.98
+2026-11-16 00:33:20,306 INFO query='help me fall asleep' retrieved=['activity-sleep'] profile={'favorite_genre': None, 'favorite_mood': 'peaceful', 'target_energy': 0.15, 'target_valence': 0.5, 'likes_acoustic': True}
+2026-11-16 00:33:20,306 INFO top=['Quiet Hours', 'Spacewalk Thoughts', 'Library Rain', 'Autumn Letters', 'Focus Flow'] confidence=0.81
+2026-11-16 00:33:20,308 INFO query='help me fall asleep' retrieved=['activity-sleep'] profile={'favorite_genre': None, 'favorite_mood': 'peaceful', 'target_energy': 0.15, 'target_valence': 0.5, 'likes_acoustic': True}
+2026-11-16 00:33:20,308 INFO top=['Quiet Hours', 'Spacewalk Thoughts', 'Library Rain', 'Autumn Letters', 'Focus Flow'] confidence=0.81
+2026-11-16 00:33:20,308 INFO query="let's party and dance" retrieved=['activity-party', 'genre-edm'] profile={'favorite_genre': 'edm', 'favorite_mood': 'euphoric', 'target_energy': 0.925, 'target_valence': 0.825, 'likes_acoustic': False}
+2026-11-16 00:33:20,308 INFO top=['Pulse Horizon', 'Gym Hero', 'Sunrise City', 'Storm Runner', 'Rooftop Lights'] confidence=0.64
+2026-11-16 00:33:20,309 INFO query="let's party and dance" retrieved=['activity-party', 'genre-edm'] profile={'favorite_genre': 'edm', 'favorite_mood': 'euphoric', 'target_energy': 0.925, 'target_valence': 0.825, 'likes_acoustic': False}
+2026-11-16 00:33:20,309 INFO top=['Pulse Horizon', 'Gym Hero', 'Sunrise City', 'Storm Runner', 'Rooftop Lights'] confidence=0.64
+2026-11-16 00:33:20,309 INFO query='gibberish xyzzy' retrieved=[] profile={'favorite_genre': None, 'favorite_mood': None, 'target_energy': 0.5, 'target_valence': 0.5, 'likes_acoustic': False}
+2026-11-16 00:33:20,310 WARNING query='gibberish xyzzy' No knowledge-base match; using a neutral profile. Try naming a genre, mood or activity.
+2026-11-16 00:33:20,310 WARNING query='gibberish xyzzy' Best match scored only 5.4/10; the catalog may not fit this request.
+2026-11-16 00:33:20,310 INFO top=['Velvet Hours', 'Dusty Porchlight', 'Midnight Coding', 'Night Drive Loop', 'Island Drift'] confidence=0.00
+2026-11-16 00:33:20,312 INFO query='gibberish xyzzy' retrieved=[] profile={'favorite_genre': None, 'favorite_mood': None, 'target_energy': 0.5, 'target_valence': 0.5, 'likes_acoustic': False}
+2026-11-16 00:33:20,312 WARNING query='gibberish xyzzy' No knowledge-base match; using a neutral profile. Try naming a genre, mood or activity.
+2026-11-16 00:33:20,312 WARNING query='gibberish xyzzy' Best match scored only 5.4/10; the catalog may not fit this request.
+2026-11-16 00:33:20,312 INFO top=['Velvet Hours', 'Dusty Porchlight', 'Midnight Coding', 'Night Drive Loop', 'Island Drift'] confidence=0.00
+2026-11-16 00:33:21,385 INFO query='gym workout' retrieved=['activity-workout'] profile={'favorite_genre': None, 'favorite_mood': 'intense', 'target_energy': 0.9, 'target_valence': 0.65, 'likes_acoustic': False}
+2026-11-16 00:33:21,385 INFO top=['Storm Runner', 'Gym Hero', 'Concrete Crown', 'Sunrise City', 'Pulse Horizon'] confidence=0.54
+2026-11-16 00:33:21,385 INFO query='sleep' retrieved=['activity-sleep'] profile={'favorite_genre': None, 'favorite_mood': 'peaceful', 'target_energy': 0.15, 'target_valence': 0.5, 'likes_acoustic': True}
+2026-11-16 00:33:21,385 INFO top=['Quiet Hours', 'Spacewalk Thoughts', 'Library Rain', 'Autumn Letters', 'Focus Flow'] confidence=0.27
+2026-11-16 00:33:21,391 INFO query='qwertyuiop' retrieved=[] profile={'favorite_genre': None, 'favorite_mood': None, 'target_energy': 0.5, 'target_valence': 0.5, 'likes_acoustic': False}
+2026-11-16 00:33:21,391 WARNING query='qwertyuiop' No knowledge-base match; using a neutral profile. Try naming a genre, mood or activity.
+2026-11-16 00:33:21,391 WARNING query='qwertyuiop' Best match scored only 5.4/10; the catalog may not fit this request.
+2026-11-16 00:33:21,391 INFO top=['Velvet Hours', 'Dusty Porchlight', 'Midnight Coding', 'Night Drive Loop', 'Island Drift'] confidence=0.00

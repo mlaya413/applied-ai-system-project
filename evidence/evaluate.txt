@@ -1,0 +1,15 @@
+[PASS] 'I need something to study to'               study -> focused/chill on top
+[PASS] 'pump me up for the gym'                     gym -> energy >= 0.8
+[PASS] 'sad rainy day music'                        sad -> low energy
+[PASS] 'late night drive with neon synthwave'       synthwave named -> synthwave #1
+[PASS] 'help me fall asleep'                        sleep -> acoustic
+[PASS] "let's party and dance"                      party -> high energy
+[PASS] 'gibberish xyzzy'                            unknown -> warning, zero confidence
+[PASS] guardrail rejects ''
+[PASS] guardrail rejects '   '
+[PASS] guardrail rejects 'xxxxxxxxxxxxxxxxxxxx'
+[PASS] guardrail rejects 'None'
+[PASS] guardrail rejects '42'
+
+12/12 passed; mean confidence 51%
+exit 0
