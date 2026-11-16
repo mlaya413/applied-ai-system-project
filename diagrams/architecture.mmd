@@ -1,0 +1,9 @@
+flowchart TD
+    Catalog["Song catalog: data/songs.csv"] --> Load["Load songs and convert numeric fields"]
+    Load --> Songs["Song records"]
+    Profiles["Taste profiles: src/main.py"] --> Recommend["Recommend songs: src/recommender.py"]
+    Songs --> Recommend
+    Recommend --> Score["Score energy, mood, valence, genre, and acousticness"]
+    Score --> Rank["Sort by descending score, then title"]
+    Rank --> TopK["Select top k songs with explanations"]
+    TopK --> Output["Print recommendations in terminal"]
