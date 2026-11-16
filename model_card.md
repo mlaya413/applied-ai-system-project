@@ -161,3 +161,57 @@ I learned that a recommender can feel smart while being just a few point rules. 
 The most surprising thing was Gym Hero. It kept showing up for people who never asked for it. It was not a bug. The catalog was just too small, and the label points were too strong.
 
 This changed how I think about music apps. When Spotify gets it right, it is using far more than song attributes. It also uses the behavior of millions of listeners. When it gets it wrong, I will now wonder which small rule or missing data caused it.
+
+
+---
+
+## 10. Responsible AI Reflection: Natural-Language RAG Assistant
+
+Sections 1-9 describe the original scoring model (Modules 1-3). This section covers the assistant added on top of it (`src/assistant.py`), which turns a plain-English request into a profile by retrieving entries from `data/knowledge_base.json` and then reuses that scorer.
+
+### 10.1 Limitations and biases
+
+- **Everything from Section 6 is inherited.** The assistant feeds the same scorer, so exact-match mood and genre labels, the heavy energy weight, and the 18-song catalog still shape every result.
+- **Keyword retrieval is brittle.** It only understands words I thought to list. "Fall asleep" returned nothing until I added "asleep", and synonyms, slang, typos and other languages are invisible. Because the system fails quietly into a neutral profile, a user who words things differently gets worse results without knowing why (the 0% confidence and the warning are the only clue).
+- **No negation or nuance.** "Something that is not acoustic" retrieves the acoustic entry. Mixed requests get averaged: "study on a rainy day" pulled in both the focus entry and the sad entry, which blended into energy 0.35 and valence 0.40, a profile that matches neither idea well.
+- **The knowledge base encodes my stereotypes.** I wrote the hints ("metal is never acoustic", "classical is calm", "workouts need high energy"). Those are generalizations that will be wrong for many listeners, and a user cannot see or contest them except by reading the cited doc. It also covers 15 genres of mostly Western pop-adjacent music, so tastes outside that get no useful retrieval.
+- **Confidence is a heuristic, not a probability.** It is retrieval hits times top score. A clearly good result ("gym workout", top song 8.1/10) shows only 54%, and the number says nothing about whether the user would like the song.
+- **No real users were tested.** I checked behavior against my own expectations, so the evaluation measures consistency, not satisfaction.
+
+### 10.2 Could the AI be misused, and how would I prevent it?
+
+It is a small offline tool with no LLM and no network access, so the risks are modest, but they are real:
+
+- **Privacy and inferring mental state.** People may type things like "sad and lonely" or "can't sleep." The system logs raw requests to `logs/assistant.log`, and that text can reveal mood or health. Mitigations in place: the log is git-ignored and local, and the input is length-capped. Still needed before any real deployment: do not log raw text by default (or hash/redact it), add log retention limits, and never use the output to label a person's mental state. The model card already lists this as out of scope.
+- **Quiet manipulation of what gets recommended.** Anyone who can edit the knowledge base or the scoring weights can steer which songs or artists win (for example by adding keywords that pull requests toward one artist's genre). Mitigations: the knowledge base is a reviewable JSON file in version control, every answer shows which docs were retrieved, and the evaluation harness would flag large behavior changes. A production version would need code review on those files and a fairness check on exposure by artist or genre.
+- **Overtrust.** A confident-looking ranked list can be read as "what you will like." The confidence score, the warnings, and the cited context exist to make the uncertainty visible; the output should never be presented as personalized truth.
+- **Abuse of the input.** Over-long or non-text input is rejected. There is no rate limiting or authentication, which would be required if it were exposed as a web service.
+
+### 10.3 What surprised me while testing reliability
+
+1. **The harness failed on the first real run.** The first evaluation run was 11/12, because "help me fall asleep" matched nothing: "sleep" does not match "asleep" under whole-word matching. I had chosen whole-word matching on purpose to avoid false hits, and it caused a false miss in the other direction. Fixing it took three keywords; finding it took a test I had not planned to write by hand.
+2. **A good answer can have low confidence.** "gym workout" produced a sensible top result at only 54% confidence, while an unmatched request correctly showed 0%. The ordering of confidence is useful; the absolute value is not.
+3. **A second retrieved doc can dilute the first.** Adding "rainy day" to a study request shifted the valence target from about 0.55 to 0.40 through averaging. The top song was still a good study track, but the recommendations underneath it drifted toward sad folk.
+4. **Unmatched input still returns five plausible songs.** Even with a neutral profile the scorer produces a confident-looking list (top song 5.35/10), so the warning has to carry the whole message. Passing the harness's "warns on unknown input" case was less reassuring than it sounds.
+5. **Determinism was easy; usefulness was not.** Repeated runs gave identical rankings every time, which is trivial for a rule-based system, but it says nothing about whether the rankings are good.
+
+### 10.4 Retrieval before and after (evidence the retrieved context matters)
+
+Same scorer, same songs, two different profiles for the request "gym workout":
+
+| | Profile used | Top result |
+|---|---|---|
+| Without retrieval (neutral fallback: energy 0.5, valence 0.5, no labels) | built from nothing | Velvet Hours (r&b/romantic), 5.35/10 |
+| With retrieval (matched the `activity-workout` doc) | mood=intense, energy 0.90, valence 0.65, not acoustic | Storm Runner (rock/intense), 8.11/10; Gym Hero 8.06 |
+
+The retrieved doc changes both the ranking and the explanation, which is what makes retrieval part of the system's logic rather than decoration.
+
+### 10.5 Collaboration with AI
+
+I built this project with Claude (via Claude Code) as a coding partner. I set the goals and the rubric requirements and reviewed what it produced; it wrote most of the first drafts of the code, tests, diagram and documentation, and ran them to check the results.
+
+**A suggestion I accepted: make retrieval change the profile, using a local knowledge base instead of an LLM API.** When I needed an AI feature that was "fully integrated into the main application logic," the assistant proposed a design where retrieved knowledge-base entries are converted into the taste profile that the existing scorer consumes, rather than calling an external model or printing retrieved text next to an unchanged answer. I accepted it because it satisfied the rubric's requirement that retrieval must meaningfully change behavior, it needs no API key or network (so anyone can reproduce it), and it made the system easy to test: the before/after table above is only possible because the retrieval step has a visible effect. The cost, which I accepted knowingly, is the brittle keyword matching described in 10.1.
+
+**A suggestion I changed: the logging setup.** The first version of the assistant's logging attached two handlers, one writing every event to `logs/assistant.log` and one printing warnings to the console. When I ran it, every warning appeared twice in the terminal, once from the logger and once from the formatted output that already lists warnings. I removed the console handler and kept the file handler only, so the user sees each warning once while the log still keeps a full audit trail. The suggestion was not wrong in principle (console warnings are useful in a long-running service), but it was a poor fit for a short command-line tool whose own output already shows the warnings, so I scoped it down.
+
+**What still needs human judgment.** The harness only checks cases we thought of, and it was the failing case (not the AI's own summary) that exposed the "asleep" gap; the right fix was to add keywords, not to loosen the test. The confidence number also looked authoritative until it showed 54% on a clearly good result, so it should be read as a rough signal and reviewed by a person.
